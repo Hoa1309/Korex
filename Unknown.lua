@@ -45,7 +45,7 @@ sg.Parent = CoreGui:FindFirstChild("RobloxGui") or CoreGui
 local main = Instance.new("Frame", sg)
 main.Size = UDim2.new(0, 270, 0, 370)
 main.Position = UDim2.new(0.05, 0, 0.25, 0)
-main.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
+main.BackgroundColor3 = Color3.fromRGB(8, 8, 8) -- Màu đen chủ đạo
 main.BackgroundTransparency = 0.05
 main.BorderSizePixel = 0
 main.Active = true
@@ -59,9 +59,9 @@ stroke.Transparency = 0.3
 
 local gradient = Instance.new("UIGradient", stroke)
 gradient.Color = ColorSequence.new({
-	ColorSequenceKeypoint.new(0, Color3.fromRGB(80, 80, 80)),
-	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 255)),
-	ColorSequenceKeypoint.new(1, Color3.fromRGB(40, 40, 40))
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 60, 60)),
+	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(150, 150, 150)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(20, 20, 20))
 })
 
 task.spawn(function()
@@ -84,7 +84,7 @@ Instance.new("UICorner", minIcon).CornerRadius = UDim.new(0, 12)
 
 local minStroke = Instance.new("UIStroke", minIcon)
 minStroke.Thickness = 2
-minStroke.Color = Color3.fromRGB(150, 150, 150)
+minStroke.Color = Color3.fromRGB(100, 100, 100)
 
 local header = Instance.new("Frame", main)
 header.Size = UDim2.new(1, 0, 0, 48)
@@ -146,7 +146,7 @@ listLayout.Padding = UDim.new(0, 8)
 local function createButton(order, text)
 	local container = Instance.new("Frame", content)
 	container.Size = UDim2.new(1, 0, 0, 44)
-	container.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+	container.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 	container.LayoutOrder = order
 
 	Instance.new("UICorner", container).CornerRadius = UDim.new(0, 10)
@@ -174,7 +174,7 @@ local function createButton(order, text)
 	local toggleCircle = Instance.new("Frame", toggleBg)
 	toggleCircle.Size = UDim2.new(0, 16, 0, 16)
 	toggleCircle.Position = UDim2.new(0, 3, 0.5, -8)
-	toggleCircle.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+	toggleCircle.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
 	Instance.new("UICorner", toggleCircle).CornerRadius = UDim.new(1, 0)
 
 	local clickBtn = Instance.new("TextButton", container)
@@ -183,16 +183,16 @@ local function createButton(order, text)
 	clickBtn.Text = ""
 
 	clickBtn.MouseEnter:Connect(function()
-		TweenService:Create(container, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(22, 22, 22)}):Play()
+		TweenService:Create(container, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(24, 24, 24)}):Play()
 	end)
 	clickBtn.MouseLeave:Connect(function()
-		TweenService:Create(container, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(15, 15, 15)}):Play()
+		TweenService:Create(container, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(16, 16, 16)}):Play()
 	end)
 
 	return clickBtn, label, toggleBg, toggleCircle, btnStroke
 end
 
-local hbBtn, hbLabel, hbBg, hbCircle, hbStroke = createButton(1, "Hitbox Size 35")
+local hbBtn, hbLabel, hbBg, hbCircle, hbStroke = createButton(1, "Hitbox x7")
 local espBtn, espLabel, espBg, espCircle, espStroke = createButton(2, "ESP Highlight")
 local speedBtn, speedLabel, speedBg, speedCircle, speedStroke = createButton(3, "Speed x1.5")
 local noclipBtn, noclipLabel, noclipBg, noclipCircle, noclipStroke = createButton(4, "Noclip")
@@ -210,29 +210,25 @@ local function setToggleState(state, label, toggleBg, toggleCircle, stroke)
 	local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 	if state then
 		TweenService:Create(label, tweenInfo, {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-		TweenService:Create(toggleBg, tweenInfo, {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
-		TweenService:Create(toggleCircle, tweenInfo, {Position = UDim2.new(1, -19, 0.5, -8), BackgroundColor3 = Color3.fromRGB(10, 10, 10)}):Play()
-		TweenService:Create(stroke, tweenInfo, {Color = Color3.fromRGB(200, 200, 200)}):Play()
+		TweenService:Create(toggleBg, tweenInfo, {BackgroundColor3 = Color3.fromRGB(220, 220, 220)}):Play()
+		TweenService:Create(toggleCircle, tweenInfo, {Position = UDim2.new(1, -19, 0.5, -8), BackgroundColor3 = Color3.fromRGB(15, 15, 15)}):Play()
+		TweenService:Create(stroke, tweenInfo, {Color = Color3.fromRGB(180, 180, 180)}):Play()
 	else
 		TweenService:Create(label, tweenInfo, {TextColor3 = Color3.fromRGB(150, 150, 150)}):Play()
 		TweenService:Create(toggleBg, tweenInfo, {BackgroundColor3 = Color3.fromRGB(25, 25, 25)}):Play()
-		TweenService:Create(toggleCircle, tweenInfo, {Position = UDim2.new(0, 3, 0.5, -8), BackgroundColor3 = Color3.fromRGB(100, 100, 100)}):Play()
+		TweenService:Create(toggleCircle, tweenInfo, {Position = UDim2.new(0, 3, 0.5, -8), BackgroundColor3 = Color3.fromRGB(90, 90, 90)}):Play()
 		TweenService:Create(stroke, tweenInfo, {Color = Color3.fromRGB(35, 35, 35)}):Play()
 	end
-end
-
-local function isTeammate(player)
-	if player == LocalPlayer then return true end
-	if LocalPlayer.Team ~= nil and player.Team ~= nil then
-		return LocalPlayer.Team == player.Team
-	end
-	return false
 end
 
 local function resetHitbox(char)
 	if char then
 		local hrp = char:FindFirstChild("HumanoidRootPart")
-		if hrp then hrp.Size = defaultSize; hrp.Transparency = 1 end
+		if hrp then 
+			hrp.Size = defaultSize
+			hrp.Transparency = 1 
+			hrp.CanQuery = true
+		end
 	end
 end
 
@@ -361,21 +357,18 @@ task.spawn(function()
 		if hbOn then
 			for _, v in pairs(Players:GetPlayers()) do
 				if v ~= LocalPlayer and v.Character then
-					if isTeammate(v) then
-						resetHitbox(v.Character)
-					else
-						local hum = v.Character:FindFirstChildOfClass("Humanoid")
-						local hrp = v.Character:FindFirstChild("HumanoidRootPart")
-						if hrp and hum then
-							if hum.Health > 0 then
-								hrp.Size = Vector3.new(35, 35, 35)
-								hrp.Transparency = 0.8
-								hrp.Color = Color3.fromRGB(150, 150, 150)
-								hrp.Material = Enum.Material.SmoothPlastic
-								hrp.CanCollide = false
-							else
-								resetHitbox(v.Character)
-							end
+					local hum = v.Character:FindFirstChildOfClass("Humanoid")
+					local hrp = v.Character:FindFirstChild("HumanoidRootPart")
+					if hrp and hum then
+						if hum.Health > 0 then
+							hrp.Size = Vector3.new(25, 25, 20)
+							hrp.Transparency = 0.8
+							hrp.Color = Color3.fromRGB(200, 200, 200)
+							hrp.Material = Enum.Material.SmoothPlastic
+							hrp.CanCollide = false
+							hrp.CanQuery = true
+						else
+							resetHitbox(v.Character)
 						end
 					end
 				end
@@ -398,11 +391,7 @@ RunService.RenderStepped:Connect(function()
 					hl.Parent = char
 					Highlights[player] = hl
 				end
-				if isTeammate(player) then
-					Highlights[player].FillColor = Color3.fromRGB(0, 255, 120)
-				else
-					Highlights[player].FillColor = Color3.fromRGB(150, 150, 150)
-				end
+				Highlights[player].FillColor = Color3.fromRGB(150, 150, 150)
 				Highlights[player].OutlineColor = Color3.fromRGB(255, 255, 255)
 			end
 		end
