@@ -1,3 +1,12 @@
+getgenv().Resolution = { [".gg/scripters"] = 0.87 } 
+local Camera = workspace.CurrentCamera 
+if getgenv().gg_scripters == nil then 
+	game:GetService("RunService").RenderStepped:Connect(function() 
+		Camera.CFrame = Camera.CFrame * CFrame.new(0, 0, 0, 1, 0, 0, 0, getgenv().Resolution[".gg/scripters"], 0, 0, 0, 1) 
+	end) 
+end 
+getgenv().gg_scripters = "Aori0001"
+
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -56,7 +65,7 @@ gradient.Color = ColorSequence.new({
 })
 
 task.spawn(function()
-	while sg.Parent do
+	while sg and sg.Parent do
 		gradient.Rotation = (gradient.Rotation + 1) % 360
 		task.wait(0.03)
 	end
